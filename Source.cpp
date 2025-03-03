@@ -1,15 +1,279 @@
-#include<iostream>
-using namespace std;
+﻿//#include<iostream>
+//using namespace std;
+//
+//void main()
+//{
+//    cout << "Every\n      hunter\n\t     wants \n\t\t   to \n\t\t      know\n\t\t\t   where\n\t\t\t\t the \n\t\t\t             pheasant\n\t\t\t\t\t      is\n\t\t\t\t\t        sitting.";
+//	cout <<" You tricked me (folk song)\n\t           Verse 1:\n\t\t\t   You tricked me\n\t\t\t   And I spent it on the river,\n\t\t\t   You tricked me\n\t\t\t   And I spent it on the river.";
+//
+//
+//
+//
+//	cout << "For Sale: Lifan City-R200 Motorcycle!\nModel: Lifan City-R200\nYear: 2020\nMileage: 15,000 km\nCondition: Excellent, ready to ride\nKey Features:\nEngine capacity: 200 cc\nEngine type: 4-stroke, single-cylinder\nManual transmissionn\nLocation: Rivne, Kustyn\nPrice: 35,000 UAH\nContact:+380*********\n+380     | *** |\n**       | **  |";
+//
+//}
+//void main() {
+//        int dig1, dig2, dig3;
+//        cout << "Enter the first side of the triangle: ";
+//       cin >> dig1;
+//        cout << "Enter the other side of the triangle: ";
+//        cin >> dig2;
+//        cout << "Enter the third side of the triangle: ";
+//      cin >> dig3;
+//      if ((dig1 == dig2) || (dig2 == dig3))
+//       {
+//           cout << "An equilateral triangle.";
+//      }
+//   
+//     else if ((dig1 == dig2 || dig2 == dig3 || dig1 == dig3))
+//       {
+//           cout << "An isosceles triangle.";
+//       }
+//       else if ((dig1 * dig1 + dig2 * dig2 == dig3 * dig3 || dig1 * dig1 + dig3 * dig3 == dig2 * dig2 ||  dig2 * dig2 + dig3 * dig3 == dig1 * dig1))
+//       {
+//           cout << "A right triangle.";
+//        }
+//       else
+//      {
+//          cout << "Incorrectly entered characters!";
+//      }
+//    }
+//   int Wisota_Brick, Shirina_Brick, Wisota_Hole, Shirina_Hole;
+//
+//    cout << "Enter the height of the brick:";
+//    cin >> Wisota_Brick;
+//    cout << "Enter the width of the brick:";
+//    cin >> Shirina_Brick;
+//    cout << "Enter the size of the hole in the wall(Height) :";
+//    cin >> Wisota_Hole;
+//    cout << "Enter the size of the hole in the wall (Width):";
+//    cin >> Shirina_Hole;
+//    if (Wisota_Brick < Wisota_Hole && Shirina_Brick < Shirina_Hole)
+//    {
+//        cout << "A brick will fit in the hole!";
+//    }
+//    else
+//    {
+//        cout << "A brick will not fit in the hole!";
+//    }
+//}
+//
+//
+//    int dig1, dig2, dig3;
+//    
+//    cout << "Enter the first number:";
+//    cin >> dig1;
+//    cout << "Enter the second number:";
+//    cin >> dig2; 
+//    cout <<"Enter the third number:";
+//    cin >> dig3;
+//    if ((dig1 > 0 && dig2 > 0 && dig3 > 0))
+//    {
+//        cout << "These numbers are positive.";
+//    }
+//    else if ((dig1 > 0 or dig2 > 0 or dig3 > 0))
+//    {
+//        cout << "More than 0.";
+//    }
+//    else
+//    {
+//        cout << "These numbers are negative!";
+//    }
+//}
 
-void main()
-{
-	 cout << "Every\n      hunter\n\t     wants \n\t\t   to \n\t\t      know\n\t\t\t   where\n\t\t\t\t the \n\t\t\t             pheasant\n\t\t\t\t\t      is\n\t\t\t\t\t         sitting.";
-
-	cout <<" You tricked me (folk song)\n\t           Verse 1:\n\t\t\t   You tricked me\n\t\t\t   And I spent it on the river,\n\t\t\t   You tricked me\n\t\t\t   And I spent it on the river.";
 
 
+;///1.Вивести на екран цілі числа від 1 до 100. - while
+///2.Вивести на екран додатні парні числа, які не перевищують 200, та їх кількість. - while
+///3.Дано N(N > 0).Вводяться N чисел.Знайти суму парних серед цих чисел. - while
+///4.Вводяться 10 чисел.Знайти суму та середнє арифметичне цих чисел. - while
+///5.Вивести на екран цілі числа : 100 99 98 97...3 2 1. - do..while
+///6.Написати програму яка обчислює суму семи чисел, які вводяться з клавіатури. - do..while
+
+//#include <iostream>
+//using namespace std;
+//int main() {
+	///1.Вивести на екран цілі числа від 1 до 100. - while
+	//int i = 0;
+	//while (true)
+	//{
+	//	cout << i << endl;
+	//	i++;
+	//	if (i == 101)
+	//		break;
+	//}
+	
+	///2.Вивести на екран додатні парні числа, які не перевищують 200, та їх кількість. - while
+	//int i = 0;
+	//while (i <= 200)
+	//{
+	//	if (i % 2 == 0) {
+	//		cout << i << endl;
+	//	}
+	//	i++;
+
+	//}
+	
+
+	//3.Дано N(N > 0).Вводяться N чисел.Знайти суму парних серед цих чисел. - while
+
+	/*int countnumber;
+	cout << "Print how numbers print :";  cin >> countnumber;
+	int i = 0;
+	int number;
+	int summa = 0;
+	while (i < countnumber) {
+		cout << "Enter : " << i + 1 << "number : ";
+		cin >> number;
+		if (number % 2 == 0) {
+			summa += number;
+		}
+		i++;
+	}
+	cout << "Sum of even number =" << summa;*/
+	///4.Вводяться 10 чисел.Знайти суму та середнє арифметичне цих чисел. - while
+	//int number1, number2, number3, number4, number5, number6, number7, number8, number9, number10;
+	//cout << "Enter the first number: ";
+	//cin >> number1;
+ //   cout << "Enter the second number: ";
+	//cin >> number2;
+	//cout << "Enter the third number: "
+	//cin >> number3;
+	//cout << "Enter the fourth number: ";
+	//cin >> number4;
+	//cout << "Enter the fifth number: ";
+	//cin >> number5;
+	//cout << "Enter the sixth number: ";
+	//cin >> number6;
+	//cout << "Enter the seventh  number: ";
+	//cin >> number7;
+	//cout << "Enter the eighth number: ";
+	//cin >> number8;
+	//cout << "Enter the ninth number: ";
+	//cin >> number9;
+	//cout << "Enter the tenth number: ";
+	//cin >> number10;
+
+	//int i = number1;
+	//int lifan = 0;
+	//int dig1 = 0;
+	//	while( i <= number2)
+	//	cout << (number1);
+	//	lifan += i;
+	//	dig1 += 1;
+	//	i += 1;
+	//	lifan / dig1;
+	//	cout << "sum ="; lifan;
+	//	cout << "Arithmetic mean =";
+	//	lifan / dig1;
+	//
+
+//Завдання 1. Вивести на екран усі числа від нуля до вве -
+//деного користувачем числа.
+	
 
 
-	cout << "For Sale: Lifan City-R200 Motorcycle!\nModel: Lifan City-R200\nYear: 2020\nMileage: 15,000 km\nCondition: Excellent, ready to ride\nKey Features:\nEngine capacity: 200 cc\nEngine type: 4-stroke, single-cylinder\nManual transmissionn\nLocation: Rivne, Kustyn\nPrice: 35,000 UAH\nContact:+380*********\n+380     | *** |\n**       | **  |";
 
-}
+//#include <iostream>
+//using namespace std;
+//int main() {
+	/*int i = 0;
+	int cislo;
+	cout << "Enter the number:  ";
+	cin >> cislo;
+	for (int i = 0; i <= cislo; i++)
+	{
+		cout << i << " ";
+
+
+
+	}*/
+	////Завдання 2. Користувач вводить дві межі діапазону, ви -
+	//вести на екран усі числа з цього діапазону.Передбачити,
+	//щоб користувач міг вводити межі діапазону в довільному
+	//порядку.
+	//■ вивести всі парні числа з діапазону.
+	//■ вивести всі непарні числа з діапазону.
+	//■ вивести всі числа, кратні семи.
+
+	/*int i = 0;
+	int cislo2;
+	int cislo1;
+	cout << "Enter first number:  ";
+	cin >> cislo1;
+	cout << "Enter the second number:  ";
+	cin >> cislo2;*/
+
+	/*for (int i=cislo1 ; i <= cislo2; i++)
+	{
+		cout << i << " ";
+	}*/
+	//■ вивести всі парні числа з діапазону.
+	//for (int i = cislo1; i <= cislo2; i++)
+	//{ 
+	//	if (i % 2 == 0)
+	//	{
+	//		cout << i << " ";
+	//	}
+	////}
+	//■ вивести всі непарні числа з діапазону.
+	//for (int i = cislo1; i <= cislo2; i++)
+	//{
+	//	if (i % 2 != 0)
+	//	{
+	//		cout << i << " ";
+	//	}
+	//}
+	//■ вивести всі числа, кратні семи.
+	/*for (int i = cislo1; i <= cislo2; i++)
+	{
+		if (i % 7 == 0)
+		{
+			cout << i << " ";
+		}
+
+		}*/
+		//Завдання 3. Користувач вводить дві межі діапазону.По -
+		//рахувати суму всіх чисел діапазону.
+
+//	int i = 0;
+//	int cislo2;
+//	int cislo1;
+//	cout << "Enter first number:  ";
+//	cin >> cislo1;
+//	cout << "Enter the second number:  ";
+//	cin >> cislo2;
+//	for (int i=cislo1 ; i <= cislo2; i++)
+//		{
+//			cout << i << " ";
+//		}
+//
+//}
+
+
+
+
+//Завдання 4. Користувач з клавіатури вводить числа.По -
+//рахувати їхню суму і вивести на екран, щойно користувач
+//введе нуль.
+
+
+
+
+
+
+//Завдання 1. Написати гру «Вгадай число».Програма
+
+//загадує число в діапазоні від 1 до 500. Користувач на -
+//магається його вгадати.Після кожної спроби програма
+
+//видає підказки, чи його число є більшим або меншим за
+//задумане.У кінці програма видає статистику : за скільки
+
+//спроб угадано число, скільки часу це зайняло.Передба -
+//чити вихід за допомогою 0, у разі, якщо користувачеві
+
+//набридло вгадувати число.
+
+//Завдання 2. Написати програму — конвертер валют.Ре -
+//алізувати спілкування з користувачем через меню
