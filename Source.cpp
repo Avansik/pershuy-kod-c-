@@ -317,7 +317,7 @@ using namespace std;
 int main()
 {
 
-	
+
 
 	//const int size = 10;
 	//int arr[size] = { 5,8,-9,4,-71,-6,23,9,3,12 };
@@ -328,7 +328,7 @@ int main()
 	//{
 	//	dobutok *= arr[i];
 	//	}
-	
+
 
 	//cout << "dobutok elements = " << dobutok << endl;
 
@@ -358,4 +358,416 @@ int main()
 	}
 	cout << "\nSumma negative elements = " << countnegative << endl;
 	cout << "Summa positive elements = " << positive << endl;*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//07.03.2025
+	//srand(time(NULL));
+	//const int size = 10;
+	//int arr[size];
+	//for (int i = 0; i < size; i++)
+ //   {
+	//	arr[i] = rand() % 100;
+	//for (int i = 0; i < size; i++)
+ //   {
+	//	arr[i] = rand() % 100;
+	//	cout << arr[i] << " ";
+	//}
+	//}
+	//cout << endl ;
+	//
+	//const int row = 5;
+	//const int col = 6;
+	//int array[row][col];
+	// 
+	//int array2[2][2] = { {1,2},{3,4} };
+	//for (int i = 0; i < 2; i++)
+	//{
+	//	for (int j = 0; j < 2; j++)
+	//	{
+	//		cout << array2[i][j] << " ";
+	//	}
+	//}
+	//cout << endl;
+	//
+	//int array3[3][3] = {  };
+	//int array4[3][3] = { {1,2},{3,4} };
+	//
+	//
+	//
+	//
+	//cout << "Enter ";
+	//a = rand();
+	//cout << "a = " << a << endl;
+ //   a = rand();
+	//cout << "b = " << a << endl;
+ //   a = rand();
+	//cout << "c = " << a << endl;
+
+
+
+
+
+
+
+
+
+
+	//1.Дано масив розміром 4×3 з елементами цілого типу.
+	//	Визначити кількість елементів відмінних від нуля.
+//const int row = 4;
+//const int col = 3;
+//int kilkist = 0;
+//int array[row][col];
+//int max;
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		//array[i][j] = rand() % 100;
+//		array[i][j] = rand() % 90 + 10;//10...100
+//		cout << array[i][j] << " ";
+//	}
+//	cout << endl;
+//}
+//cout << endl;
+//
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		if (array[i][j] != 0)
+//		{
+//			kilkist++;
+//	}
+//	}
+//
+//}
+//cout << endl;
+//cout <<"number = " << kilkist ;
+
+
+
+
+
+
+
+//2.Дано масив розміром 3×3 з елементами цілого типу.
+		//Визначити кількість елементів які б дорівнювали нулю.
+//const int row = 3;
+//const int col = 3;
+//int kilkist = 0;
+//int array[row][col];
+//int max;
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		//array[i][j] = rand() % 100;
+//		array[i][j] = rand() %   10;//10...100
+//		cout << array[i][j] << " ";
+//	}
+//	cout << endl;
+//}
+//cout << endl;
+//
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		if (array[i][j] == 0)
+//		{
+//			
+//			kilkist++;
+//		}
+//	}
+//
+//}
+//cout << endl;
+//cout << "number = " << kilkist;
+
+
+
+
+
+
+
+		//3.Дано масив розміром 7×3 з елементами цілого типу.
+	//	Визначити кількість елементів, модуль яких менший 12. (-20 + rand() % 40)
+//const int row = 7;
+//const int col = 3;
+//int kilkist = 0;
+//int array[row][col];
+//int max;
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		//array[i][j] = rand() % 100;
+//		array[i][j] = rand() %10;//10...100
+//		cout << array[i][j] << " ";
+//	}
+//	cout << endl;
+//}
+//cout << endl;
+//
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		if (array[i][j] < 12)
+//		{
+//
+//			kilkist++;
+//		}
+//	}
+//
+//}
+//cout << endl;
+//cout << "number = " << kilkist;
+
+
+
+
+
+
+	//	4.Дано масив розміром 4×5 з елементами цілого типу(позитивні та від’ємні).
+	//	Визначити кількість позитивних елементів.
+//const int row = 4;
+//const int col = 5;
+//int kilkist = 0;
+//int array[row][col];
+//int max;
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		//array[i][j] = rand() % 100;
+//		array[i][j] =  -20 + rand()%40;//10...100
+//		cout << array[i][j] << " ";
+//	}
+//	cout << endl;
+//}
+//cout << endl;
+//
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		if (array[i][j] > 0)
+//		{
+//
+//			kilkist++;
+//		}
+//	}
+//
+//}
+//cout << endl;
+//cout << "number = " << kilkist;
+//	
+
+
+
+
+
+
+
+
+
+
+
+	  //5.Дано масив розміром 5×4 з елементами дійсного типу(додатні та від’ємні).
+	  //Визначити добуток всіх додатніх елементів.
+//const int row = 5;
+//const int col = 4;
+//int dobutok = 1;
+//int array[row][col];
+//int max;
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		//array[i][j] = rand() % 100;
+//		array[i][j] = -20 + rand() % 40;//10...100
+//		cout << array[i][j] << " ";
+//	}
+//	cout << endl;
+//}
+//cout << endl;
+//
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		if (array[i][j] > 0)
+//		{
+//
+//			dobutok*= array[i][j];
+//		}
+//	}
+//
+//}
+//cout << endl;
+//cout << "number = " << dobutok;
+//
+
+
+
+
+
+
+
+
+
+
+	//	6.Дано масив розміром 5×4 з елементами дійсного типу(позитивні та від’ємні).
+	//	Визначити добуток всіх від’ємних елементів.
+
+	//const int row = 5;
+	//const int col = 4;
+	//int dobutok = 1;
+	//int array[row][col];
+	//int max;
+	//for (int i = 0; i < row; i++)
+	//{
+	//	for (int j = 0; j < col; j++)
+	//	{
+	//		//array[i][j] = rand() % 100;
+	//		array[i][j] = -20 + rand() % 40;//10...100
+	//		cout << array[i][j] << " ";
+	//	}
+	//	cout << endl;
+	//}
+	//cout << endl;
+
+	//for (int i = 0; i < row; i++)
+	//{
+	//	for (int j = 0; j < col; j++)
+	//{
+	//		if (array[i][j] < 0)
+	//		{
+
+	//			dobutok*= array[i][j];
+	//		}
+	//	}
+
+	//}
+	//cout << endl;
+	//cout << "number = " << dobutok;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//	7.Дано масив розміром 4×4 з елементами цілого типу.Визначити кількість
+	//	елементів, які б при діленні на 6 давали залишок 1. 13 % 6 = 1
+//const int row = 5;
+//const int col = 4;
+//int number = 0 ;
+//int array[row][col];
+//int max;
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		//array[i][j] = rand() % 100;
+//		array[i][j] = -20 + rand() % 40;//10...100
+//		cout << array[i][j] << " ";
+//	}
+//	cout << endl;
+//}
+//cout << endl;
+//
+//for (int i = 0; i < row; i++)
+//{
+//	for (int j = 0; j < col; j++)
+//	{
+//		if (array[i][j] % 6 == 1 )
+//		{
+//
+//			number++;
+//		}
+//	}
+//
+//}
+//cout << endl;
+//cout << "number = " << number;
+
+
+
+
+	//	8.Дано масив розміром 5хб цілого типу.Знайти мінімальний елемент.
+	
+
+
+
+
+
+
+
+
+	//	9.Дано масив розміром 5×6 цілого типу.Знайти максимальний елемент.
+	//const int row = 5;
+	//const int col = 6;
+	//int array[row][col];
+	//int max;
+	//for (int i = 0; i < row; i++)
+	//{
+	//	for (int j = 0; j < col; j++)
+	//	{
+	//		//array[i][j] = rand() % 100;
+	//		array[i][j] = rand() % 90 + 10;//10...100
+	//		cout << array[i][j] << " ";
+	//	}
+	//	cout << endl;
+	//}
+	//cout << endl;
+	//max = array[0][0];
+	//for (int i = 0; i < row; i++)
+	//{
+
+	//	for (int j = 0; j < col; j++)
+	//	{
+	//		if (array[i][j] > max)
+	//		{
+	//			max = array[i][j];
+	//		}
+	//	}
+
+
+	//}
+	//cout << endl;
+	//cout << "Max element  = " << max << endl;
+	
+	
+	
+	
+	
+	//	10.Дано масив розміром 5×4 з елементами дійсного типу(позитивні та від’ємні).
+	//	Визначити суму всіх від’ємних елементів.
+
 }
+
