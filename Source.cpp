@@ -770,4 +770,66 @@ int main()
 	//	Визначити суму всіх від’ємних елементів.
 
 }
-
+//14.03.2025
+// Визначити функцію прямого пошуку як шаблон. ПЕревірити роботу функції на масиві цілих, дробових, char,
+//#include <iostream>
+//using namespace std;
+//
+//	
+//	int search(int key, int arr[], int size)
+//	{
+//		for (int i = 0 ; i < size; i++)
+//		{
+//			if (arr[i] == key)
+//			{
+//				return i;
+//			}
+//		}
+//		return -1;
+//	}
+//
+//	void main() {
+//		const int size = 5;
+//		int arr[size] = { 11,20,34,-12,25 };
+//		int key = 0;
+//		cout << "Enter a key:  ";
+//		cin >> key;
+//		int index = search(key, arr, size);
+//		cout << "index of key = " << index << endl;
+//	}
+	////Визначити функцію(шаблон) для покращеного лінійного пошуку  впорядкованому масиві
+//#include <iostream>
+//using namespace std;
+//
+//int searchKey(int key, int arr[], int size) {
+//	
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (arr[i] == key)
+//			{
+//				return i;
+//			}
+//	}
+//	return -1;
+//}
+//void main() {
+//	const int SIZE = 7;
+//	int arr[SIZE] = { 10,22,34,100,110,120,145 };
+//	int key;
+//
+//	do {
+//		cout << "Print 0 for exit!" << endl;
+//		cout << "Enter a number: ";
+//		cin >> key;
+//
+//		int index = searchKey(key, arr, SIZE);
+//		
+//		if (index != -1)
+//		{
+//			cout << "Index of number = " << index << endl;
+//		}
+//		;
+//	}
+//	while (key != 0 );
+//	cout << "I am waiting for you again.\nBye!";
+//}
