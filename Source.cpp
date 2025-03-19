@@ -833,3 +833,44 @@ int main()
 //	while (key != 0 );
 //	cout << "I am waiting for you again.\nBye!";
 //}
+
+
+
+
+
+
+//19.03.2025
+
+#include <iostream>
+using namespace std;
+
+void swaping(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int main() {
+	/*
+	Завдання 1. Використовуючи покажчики й оператор розіменування, визначити найбільше з двох чисел.
+	*/
+	// int a = 2, b = 5;
+	// int* pmax = Max2numbers(&a, &b);
+	// cout << "pmax = " << *pmax << endl;
+
+	/*
+	Завдання 2. Використовуючи покажчики й оператор розіменування, поміняти знак числа, введеного з клавіатури.
+	*/
+	// int n;
+	// InvertSign(&n);
+
+	/*
+	Завдання 3. Використовуючи покажчики й оператор розіменування, поміняти місцями значення двох змінних.
+	*/
+	int num1 = 5, num2 = 6;
+	cout << " num1 = " << num1 << ", num2 = " << num2 << endl;
+	swaping(&num1, &num2);
+	cout << " num1 = " << num1 << ", num2 = " << num2 << endl;
+
+}
+
