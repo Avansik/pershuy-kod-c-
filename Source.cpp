@@ -927,3 +927,104 @@ int main()
 //кількість пробільних символів(whitespaces), голосних, приголосних, знаків пунктуації.
 //Введення передбачається англомовним.
 
+
+
+//24.03.2025
+//#include <iostream>
+//using namespace std;
+//int main()
+//{
+//	char str[1000];
+//	cout << "Enter a string: ";
+//	cin.getline(str, 1000);
+//
+//	int countA = 0, countO = 0;
+//	for (int i = 0; str[i] != '\0'; i++) {
+//		if (str[i] == '!' || str[i] == '!') {
+//			countA++;
+//		}
+//		else if (str[i] == '.' || str[i] == '.') {
+//			countO++;
+//		}
+//	}
+//
+//	cout << "Number of '!' (or '!'): " << countA << endl;
+//	cout << "Number of '.' (or '.'): " << countO << endl;
+//
+//	if (countA > countO) {
+//		cout << "There are more 'a' letters." << endl;
+//	}
+//	else if (countO > countA) {
+//		cout << "There are more 'a' letters." << endl;
+//	}
+//	else {
+//		cout << "The number of 'a' and 'о' letters is equal." << endl;
+//	}
+//}
+
+
+#include <iostream>
+using namespace std;
+void radok(char* dest, const char* src)
+{
+	int i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+}
+
+void radok(char* dest, const char* src)
+{
+	int i = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	for (int j = 0; src[j] != '\0'; j++, i++)
+	{
+		dest[i] = src[j];
+	}
+	dest[i] = '\0';
+}
+
+int radok(const char* str1, const char* str2)
+{
+	int i = 0;
+	while (true)
+	{
+		if (str1[i] != str2[i])
+		{
+			return str1[i] - str2[i];
+		}
+		if (str1[i] == '\0')
+		{
+			return 0;
+		}
+		i++;
+	}
+}
+
+int main() {
+	char str1[100], str2[100];
+
+	
+	cout << "Enter a line for the first string (max 100 characters): ";
+	cin.getline(str1, 100); 
+
+
+	cout << "Enter a line for the second string (max 100 characters): ";
+	cin.getline(str2, 100);  
+
+	char copyStr[200] = "";
+
+	radok(copyStr, str1);
+	radok(copyStr, ", ");
+	radok(copyStr, str2);
+
+	cout << "After connection all lines: " << copyStr << endl;
+
+
+}
