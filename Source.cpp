@@ -1028,3 +1028,82 @@ int main() {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //  02.04.2035
+
+#include <iostream>
+using namespace std;
+struct Rectangle
+{
+    double width = 0;
+    double height = 0;
+};
+
+void inputRectangle(Rectangle& rect)
+{
+    cout << "Enter width: ";
+    cin >> rect.width;
+    cout << "Enter height: ";
+    cin >> rect.height;
+}
+
+void changeWidth(Rectangle& rect, double Width)
+{
+
+    if (Width <= 0)
+    {
+       cout << "Error;" << endl;
+    }
+
+    else 
+    {
+        rect.width = Width;
+    }
+}
+void changeHeight(Rectangle& rect, double Height) 
+{
+    if (Height <= 0)
+    {
+       cout << "Error;" << endl;
+    }
+
+    else 
+    {
+       rect.height = Height;
+    }
+
+}
+double getArea(const Rectangle& rect) 
+{
+    return rect.width * rect.height;
+}
+double getPerimeter(const Rectangle& rect) 
+{
+    return 2 * (rect.width + rect.height);
+}
+int main()
+{
+    Rectangle rect;
+    double Width, Height;
+    cout << "Enter width: ";
+    cin >> Width;
+    changeWidth(rect, Width);
+    cout << "Enter height: ";
+    cin >> Height;
+    changeHeight(rect, Height);
+    cout << "Area: " << getArea(rect) << endl;
+    cout << "Perimeter: " << getPerimeter(rect) << endl;
+}
+ 
