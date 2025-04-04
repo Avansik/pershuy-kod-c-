@@ -1106,4 +1106,79 @@ int main()
     cout << "Area: " << getArea(rect) << endl;
     cout << "Perimeter: " << getPerimeter(rect) << endl;
 }
- 
+
+
+
+
+
+04.04.2025
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Marks
+{
+    int python;
+    int html;
+    int cplus;
+};
+struct Student
+{
+    string name;
+    int id;
+    Marks marks;
+};
+void printMarks(const Marks& marks)
+{
+    cout << "Python: " << marks.python << endl;
+    cout << "HTML: " << marks.html << endl;
+    cout << "C++: " << marks.cplus << endl;
+}
+void inputMarks(Marks& marks) 
+{
+    cout << "Enter Python mark: ";
+    cin >> marks.python;
+    cout << "Enter HTML mark: ";
+    cin >> marks.html;
+    cout << "Enter C++ mark: ";
+    cin >> marks.cplus;
+}
+void printStudent(const Student& stud)
+{
+    cout << "Student Name: " << stud.name << endl;
+    cout << "Student ID: " << stud.id << endl;
+    printMarks(stud.marks);
+}
+void inputStudent(Student& stud) 
+{
+    cout << "\nEnter student name: ";
+    cin.ignore();
+    getline(cin, stud.name);
+    cout << "Enter student ID: ";
+    cin >> stud.id;
+    inputMarks(stud.marks);
+}
+int main()
+{
+    Student student1, student2, student3,student4;
+    cout << "Enter details for first Student ";
+    inputStudent(student1);
+    cout << "\nEnter details for second Student :" << endl;
+    inputStudent(student2);
+    cout << "\nEnter details for third Student :" << endl;
+    inputStudent(student3);
+    cout << "\nEnter details for fourth Student 4:" << endl;
+    inputStudent(student4);
+   
+    
+    cout << "\nStudent Details:" << endl;
+   
+    
+    printStudent(student1);
+    cout << endl;
+    printStudent(student2);
+    cout << endl;
+    printStudent(student3);
+    cout << endl;
+    printStudent(student4);
+}
