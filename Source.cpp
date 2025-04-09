@@ -1182,3 +1182,221 @@ int main()
     cout << endl;
     printStudent(student4);
 }
+
+
+
+
+
+//09.04.2025
+//#include <iostream>
+//using namespace std;
+//
+//struct PIB {
+//	string name;
+//	string surname;
+//	string lastname;
+//};
+//struct Birthday {
+//	int day;
+//	int month;
+//	int year;
+//};
+//
+//class Student
+//{
+//private:
+//	PIB fullname;
+//	Birthday birthday;
+//	string phone;
+//	string city;
+//	string country;
+//	string university_name;
+//	string university_city;
+//	string university_country;
+//	string group;
+//	int* marks;
+//	int markCount;
+//	float average;
+//public:
+//
+//	Student()
+//	{
+//		cout << "Default constructor " << endl;
+//		fullname.name = "no name";
+//		fullname.surname = "no surname";
+//		fullname.lastname = "no lastname";
+//		birthday.day = 0;
+//		birthday.month = 0;
+//		birthday.year = 0;
+//		phone = "no phone";
+//		city = "no city";
+//		country = "no country";
+//		university_name = "no university_name";
+//		university_city = "no university_city";
+//		university_country = "no university_country";
+//		group = "no group";
+//		marks = nullptr;
+//		markCount = 0;
+//		average = 0;
+//	}
+//	Student(string name, string surname, string lastname)
+//	{
+//		cout << "Parametrized constructor " << endl;
+//		fullname.name = name;
+//		fullname.surname = surname;
+//		fullname.lastname = lastname;
+//		birthday.day = 0;
+//		birthday.month = 0;
+//		birthday.year = 0;
+//		phone = "no phone";
+//		city = "no city";
+//		country = "no country";
+//		university_name = "no university_name";
+//		university_city = "no university_city";
+//		university_country = "no university_country";
+//		group = "no group";
+//		marks = nullptr;
+//		markCount = 0;
+//		average = 0;
+//
+//	}
+//	void SetName(string name)
+//	{
+//		fullname.name = name;
+//	}
+//	void SetSurName(string surname)
+//	{
+//		fullname.surname = surname;
+//	}
+//	void SetLastName(string lastname)
+//	{
+//		fullname.lastname = lastname;
+//	}
+//	void SetDay(int day)
+//	{
+//		birthday.day = day;
+//	}
+//	void SetMonth(int month)
+//	{
+//		birthday.month = month;
+//	}
+//	void SetYear(int year)
+//	{
+//		birthday.year = year;
+//	}
+//	void SetPhone(string phoneNumber)
+//	{
+//		phone = phoneNumber;
+//	}
+//	void SetCity(string cityName)
+//	{
+//		city = cityName;
+//	}
+//	void SetCountry(string countryName)
+//	{
+//		country = countryName;
+//	}
+//	void SetUniversityName(string uniName)
+//	{
+//		university_name = uniName;
+//	}
+//	void SetUniversityCity(string uniCity)
+//	{
+//		university_city = uniCity;
+//	}
+//	void SetUniversityCountry(string uniCountry)
+//	{
+//		university_country = uniCountry;
+//	}
+//	void SetGroup(string groupName)
+//	{
+//		group = groupName;
+//	}
+//	void Print()
+//	{
+//		cout << fullname.name << endl;
+//		cout << fullname.surname << endl;
+//		cout << fullname.lastname << endl;
+//		cout << birthday.day << endl;
+//		cout << birthday.month << endl;
+//		cout << birthday.year << endl;
+//		cout << phone << endl;
+//		cout << city << endl;
+//		cout << country << endl;
+//		cout << university_name << endl;
+//		cout << university_city << endl;
+//		cout << university_country << endl;
+//		cout << group << endl;
+//		cout << "marks : ";
+//		for (int i = 0; i < markCount; i++)
+//		{
+//			cout << marks[i] << " ";
+//		}
+//		cout << endl;
+//		cout << markCount << endl;
+//		cout << average << endl;
+//	}
+//	void AddMark(int mark)
+//	{
+//	
+//		markCount++;
+//		int* temp = new int[markCount];
+//		for (int i = 0; i < markCount - 1; i++)
+//		{
+//			temp[i] = marks[i];
+//		}
+//		temp[markCount - 1] = mark;
+//		if (marks != nullptr)
+//			delete[] marks;
+//		marks = temp;
+//		setAverageMark();
+//	}
+//	void setAverageMark()
+//	{
+//		float sum = 0;
+//		for (int i = 0; i < markCount; i++)
+//		{
+//			sum += marks[i];
+//		}
+//		average = (float)sum / markCount;
+//	}
+//	void Delete()
+//	{
+//		if (marks != nullptr)
+//			delete[] marks;
+//	}
+//
+//	~Student()
+//	{
+//		cout << "Destructor " << fullname.name << endl;
+//		
+//		if (marks != nullptr)
+//			delete[] marks;
+//	}
+//};
+//
+//int main()
+//{
+//	Student student;
+//	student.Print();
+//;
+//	student.Print();
+//	student.AddMark(12);
+//	student.AddMark(8);
+//	student.AddMark(2);
+//	student.AddMark(3);
+//	student.SetName("Nick");
+//	student.SetSurName("Nick");
+//	student.SetLastName("Nick");
+//	student.Print();
+//	student.Delete();
+//
+//
+//
+//	Student st2("Tom", "Tomson", "Lastname");
+//	st2.Print();
+//
+//
+//
+//}
+//
