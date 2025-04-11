@@ -1399,4 +1399,343 @@ int main()
 //
 //
 //}
+////11.04.2025
+//#include <iostream>
+//using namespace std;
 //
+//struct Vagon 
+//{
+//    int number;
+//    int seatCount;
+//    int passengerCount;
+//};
+//class Train 
+//{
+//private:
+//    string model;
+//    int vagonCount;
+//    Vagon* vagon;
+//
+//public:
+//    Train() 
+//    {
+//        model = "no model";
+//        vagonCount = 0;
+//        vagon = nullptr;
+//    }
+//
+//    Train(string m, int count) 
+//    {
+//        model = m;
+//        vagonCount = count;
+//        vagon = new Vagon[vagonCount];
+//        for (int i = 0; i < vagonCount; i++) 
+//        {
+//            vagon[i].number = i + 1;
+//            vagon[i].seatCount = 50;
+//            vagon[i].passengerCount = 0;
+//        }
+//    }
+//
+//    Train(const Train& other) 
+//    {
+//        model = other.model;
+//        vagonCount = other.vagonCount;
+//        vagon = new Vagon[vagonCount];
+//        for (int i = 0; i < vagonCount; i++) 
+//        {
+//            vagon[i] = other.vagon[i];
+//        }
+//    }
+//
+//    void Show() 
+//    {
+//        cout << "Model: " << model << endl;
+//        cout << "Number of vagons: " << vagonCount << endl;
+//        for (int i = 0; i < vagonCount; i++) 
+//        {
+//            cout << "Vagon " << vagon[i].number << ": ";
+//            cout << "Seats: " << vagon[i].seatCount << ", ";
+//            cout << "Passengers: " << vagon[i].passengerCount << endl;
+//        }
+//        cout << endl;
+//    }
+//
+//    void AddVagon(int seatCount) 
+//    {
+//        Vagon* temp = new Vagon[vagonCount + 1];
+//        for (int i = 0; i < vagonCount; i++) 
+//        {
+//            temp[i] = vagon[i];
+//        }
+//        temp[vagonCount].number = vagonCount + 1;
+//        temp[vagonCount].seatCount = seatCount;
+//        temp[vagonCount].passengerCount = 0;
+//
+//        if (vagon != nullptr) 
+//        {
+//            delete[] vagon;
+//        }
+//        vagon = temp;
+//        vagonCount++;
+//    }
+//
+//    void AddPassenger(int vagonNumber) 
+//    {
+//        for (int i = 0; i < vagonCount; i++) 
+//        {
+//            if (vagon[i].number == vagonNumber) 
+//            {
+//                if (vagon[i].passengerCount < vagon[i].seatCount) 
+//                {
+//                    vagon[i].passengerCount++;
+//                    cout << "Passenger added to vagon " << vagonNumber << endl;
+//                }
+//                else 
+//                {
+//                    cout << "Vagon " << vagonNumber << " is full!" << endl;
+//                }
+//                return;
+//            }
+//        }
+//        cout << "Vagon " << vagonNumber << " not found!" << endl;
+//    }
+//
+//    ~Train() {
+//        if (vagon != nullptr) 
+//        {
+//            delete[] vagon;
+//        }
+//    }
+//};
+//
+//int main()
+//{
+//    Train train1("Express", 2);
+//    train1.Show();
+//
+//    train1.AddVagon(40);
+//    train1.Show();
+//
+//    train1.AddPassenger(1);
+//    train1.AddPassenger(3);
+//    train1.Show();
+//
+//    Train train2(train1);
+//    train2.Show();
+//}
+
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Carriage
+{
+    int number;
+    int places;
+    int passagers;
+    void Show()
+    {
+        cout << "Number: " << number << endl;
+        cout << "Places: " << places << endl;
+        cout << "Passagers: " << passagers << endl;
+    }
+};
+
+class Train
+{
+private:
+    string model;
+    int count_carriage;
+    Carriage* carriages;
+
+    Carriage fill_carriage(Carriage c)
+    {
+        cout << "Number: ";
+        cin >> c.number;
+        cout << "Places: ";
+        cin >> c.places;
+        cout << "Passagers: ";
+        cin >> c.passagers;
+        return c;
+    }
+
+public:
+    Train()
+    {
+        this->model = "";
+        this->count_carriage = 0;
+        this->carriages = nullptr;
+
+    }
+    Train(string model)
+    {
+        this->model = model;
+        this->count_carriage = 0;
+        this->carriages = nullptr;
+    }
+    Train(const Train& other)
+    {
+        this->model = other.model;
+        this->carriages = new Carriage[other.count_carriage];
+        this->count_carriage = other.count_carriage;
+        for (int i = 0; i < count_carriage; i++)
+        {
+            carriages[i] = other.carriages[i];
+        }
+    }
+    ~Train()
+    {
+        delete[]carriages;
+        cout << "Deleted!" << endl;
+    }
+    void Show()
+    {
+        cout << "-------- TRAIN [" << model << "] ---------\n";
+        cout << "Count carriages: " << count_carriage << endl;
+        cout << "Carriages info: " << endl;
+        for (int i = 0; i < count_carriage; i++)
+        {
+            cout << "\t" << i + 1 << "-carriage:" << endl;
+            carriages[i].Show();
+        }
+        cout << endl;
+    }
+
+    void Add_carriages(int count)
+    {
+        Carriage* temp = new Carriage[count_carriage + count];
+        for (int i = 0; i < count_carriage; ++i)
+        {
+            temp[i] = carriages[i];
+        }
+        for (int i = count_carriage; i < (count_carriage + count); i++)
+        {
+            cout << "Fill " << i + 1 << "-th carriage info: " << endl;
+            temp[i] = fill_carriage(temp[i]);
+        }
+
+        if (carriages != nullptr)
+            delete[] carriages;
+        carriages = temp;
+
+        count_carriage += count;
+    }
+    void Add_one_pass(int number)
+    {
+        for (int i = 0; i < count_carriage; i++)
+        {
+            if (carriages[i].number == number)
+            {
+                carriages[i].passagers++;
+            }
+        }
+    }
+    void operator++()
+    {
+        for (int i = 0; i < count_carriage; i++)
+        {
+            carriages[i].passagers++;
+        }
+    }
+    Carriage GetCarriage(int index)
+    {
+        if (index < 0 || index >= count_carriage) return Carriage();
+        else return carriages[index];
+    }
+    Carriage operator[](int index)
+    {
+        if (index < 0 || index >= count_carriage) return Carriage();
+        else return carriages[index];
+    }
+    void ChangePassangers(int count)
+    {
+        for (int i = 0; i < count_carriage; i++)
+        {
+            carriages[i].passagers += count;
+        }
+    }
+    void ChangePassangers(int count, int number)
+    {
+        for (int i = 0; i < count_carriage; i++)
+        {
+            if (carriages[i].number == number)
+            {
+                carriages[i].passagers += count;
+            }
+        }
+    }
+    void operator()(int count)
+    {
+        for (int i = 0; i < count_carriage; i++)
+        {
+            carriages[i].passagers += count;
+        }
+    }
+    void operator()(int count, int number)
+    {
+        for (int i = 0; i < count_carriage; i++)
+        {
+            if (carriages[i].number == number)
+            {
+                carriages[i].passagers += count;
+            }
+        }
+    }
+    operator string()
+    {
+        //string res = "";
+        //for (int i = 0; i < count_carriage; i++)
+        //{
+        //    //string + int + string
+        //    res += to_string( carriages[i].number) + " ";
+        //}
+        //return res;
+        return model;
+    }
+
+
+};
+int main()
+{
+
+    Train train("Intersity");
+    train.Show();
+    train.Add_carriages(2);
+    train.Show();
+
+    cout << "Operator string : " << (string)train << endl;
+
+
+    //train.Add_carriages(3);
+    //train.Show();
+    train.Add_one_pass(1);
+    train.Show();
+    train.Add_one_pass(1);
+    ++train;
+    ++train;
+    ++train;
+    train.Show();
+    Carriage car = train.GetCarriage(0);
+    car.Show();
+    cout << "------------------------" << endl;
+    car = train[0];
+    car.Show();
+    train.ChangePassangers(10);
+    train.Show();
+    train.ChangePassangers(100, 1);
+    train.Show();
+    train(10);
+    train.Show();
+    train(100, 1);
+    train.Show();
+
+    Train newTrain;
+
+    //Train new_train(train);
+    //new_train.Show();
+
