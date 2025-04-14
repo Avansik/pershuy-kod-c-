@@ -1739,3 +1739,218 @@ int main()
     //Train new_train(train);
     //new_train.Show();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//14.04.2025
+#include <iostream>
+using namespace std;
+
+struct PIB
+{
+    char name[50];
+    char surname[50];
+    char lastname[50];
+};
+
+class Abonent 
+{
+private:
+    PIB name;
+    char homePhone[20];
+    char workPhone[20];
+    char mobilePhone[20];
+    char additionalInfo[100];
+    static int abonentCount;
+
+    void copyCharArray(char* dest, const char* src, int maxLen) {
+        int i = 0;
+        while (i < maxLen - 1 && src[i] != '\0') 
+        {
+            dest[i] = src[i];
+            i++;
+        }
+        dest[i] = 0;
+    }
+
+public:
+    Abonent() 
+    {
+        cout << "Default constructor" << endl;
+        copyCharArray(name.name, "no name", 50);
+        copyCharArray(name.surname, "no surname", 50);
+        copyCharArray(name.lastname, "no lastname", 50);
+        copyCharArray(homePhone, "no home phone", 20);
+        copyCharArray(workPhone, "no work phone", 20);
+        copyCharArray(mobilePhone, "no mobile phone", 20);
+        copyCharArray(additionalInfo, "no info", 100);
+        abonentCount++;
+    }
+
+    Abonent(const char* n, const char* s, const char* l) : Abonent() 
+    {
+        cout << "Parametrized constructor (name)" << endl;
+        copyCharArray(name.name, n, 50);
+        copyCharArray(name.surname, s, 50);
+        copyCharArray(name.lastname, l, 50);
+    }
+
+    Abonent(const char* n, const char* s, const char* l, const char* hp, const char* wp, const char* mp) : Abonent(n, s, l) 
+    {
+        cout << "Parametrized constructor (phones)" << endl;
+        copyCharArray(homePhone, hp, 20);
+        copyCharArray(workPhone, wp, 20);
+        copyCharArray(mobilePhone, mp, 20);
+    }
+
+    Abonent(const char* n, const char* s, const char* l, const char* hp, const char* wp, const char* mp, const char* info) : Abonent(n, s, l, hp, wp, mp) 
+
+        cout << "Parametrized constructor (full)" << endl;
+        copyCharArray(additionalInfo, info, 100);
+    }
+
+    void SetName(const char* n)
+    {
+        copyCharArray(name.name, n, 50);
+    }
+
+    void SetSurname(const char* s) 
+    {
+        copyCharArray(name.surname, s, 50);
+    }
+
+    void SetLastname(const char* l) 
+    {
+        copyCharArray(name.lastname, l, 50);
+    }
+
+    void SetHomePhone(const char* hp) 
+    {
+        copyCharArray(homePhone, hp, 20);
+    }
+
+    void SetWorkPhone(const char* wp) 
+    {
+        copyCharArray(workPhone, wp, 20);
+    }
+    void SetMobilePhone(const char* mp) 
+    {
+        copyCharArray(mobilePhone, mp, 20);
+    }
+
+    void SetAdditionalInfo(const char* info) 
+    {
+        copyCharArray(additionalInfo, info, 100);
+    }
+
+    const char* GetName() { return name.name; }
+    const char* GetSurname() { return name.surname; }
+    const char* GetLastname() { return name.lastname; }
+    const char* GetHomePhone() { return homePhone; }
+    const char* GetWorkPhone() { return workPhone; }
+    const char* GetMobilePhone() { return mobilePhone; }
+    const char* GetAdditionalInfo() { return additionalInfo; }
+
+    static int GetAbonentCount() 
+    {
+        return abonentCount;
+    }
+
+    void Print() 
+    {
+        cout << "Name: " << name.name << endl;
+        cout << "Surname: " << name.surname << endl;
+        cout << "Lastname: " << name.lastname << endl;
+        cout << "Home phone: " << homePhone << endl;
+        cout << "Work phone: " << workPhone << endl;
+        cout << "Mobile phone: " << mobilePhone << endl;
+        cout << "Additional info: " << additionalInfo << endl;
+        cout << "----------------" << endl;
+    }
+
+    ~Abonent() 
+    {
+        cout << "Destructor for " << name.name << endl;
+        abonentCount--;
+    }
+};
+
+int Abonent::abonentCount = 0;
+
+int main()
+{
+    cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
+
+    Abonent a1;
+    a1.Print();
+    cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
+
+    Abonent a2("Ivan", "Petrov", "Ivanovych");
+    a2.Print();
+    cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
+
+    Abonent a3("Anna", "Koval", "Mykolaivna", "123-45-67", "987-65-43", "050-123-45-67");
+    a3.Print();
+    cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
+
+    Abonent a4("Oleg", "Sydorenko", "Viktorovych", "111-22-33", "444-55-66", "067-987-65-43", "Friend from school");
+    a4.Print();
+    cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
+
+    a2.SetMobilePhone("099-123-45-67");
+    cout << "Updated mobile phone for " << a2.GetName() << ": " << a2.GetMobilePhone() << endl;
+
+    cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
+}
