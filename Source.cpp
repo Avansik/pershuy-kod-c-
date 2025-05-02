@@ -2158,3 +2158,421 @@ int main() {
  
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//04/14/2025
+
+#include <iostream>
+
+using namespace std;
+ 
+class Abonent {
+
+private:
+
+    char fullName[100];
+
+    char homePhone[15];
+
+    char workPhone[15];
+
+    char mobilePhone[15];
+
+    char additionalInfo[200];
+ 
+public:
+
+    static int totalAbonents;
+ 
+    Abonent() : fullName{}, homePhone{}, workPhone{}, mobilePhone{}, additionalInfo{} {
+
+        totalAbonents++;
+
+    }
+ 
+    Abonent(const char* name, const char* home, const char* work, const char* mobile, const char* info) : Abonent() {
+
+        setString(fullName, name, 100);
+
+        setString(homePhone, home, 15);
+
+        setString(workPhone, work, 15);
+
+        setString(mobilePhone, mobile, 15);
+
+        setString(additionalInfo, info, 200);
+
+    }
+ 
+    ~Abonent() {
+
+        totalAbonents--;
+
+    }
+ 
+    void setString(char* dest, const char* src, int maxLen) {
+
+        int i = 0;
+
+        while (src[i] != '\n' && i < maxLen - 1) {
+
+            dest[i] = src[i];
+
+            i++;
+
+        }
+
+        dest[i] = '\n';
+
+    }
+ 
+    void printString(const char* str, const char* label) const {
+
+        cout << label;
+
+        int i = 0;
+
+        while (str[i] != '\n') {
+
+            cout << str[i];
+
+            i++;
+
+        }
+
+        cout << endl;
+
+    }
+ 
+    void input() {
+
+        cout << "Enter full name: ";
+
+        cin.ignore(1, '\n');
+
+        cin.getline(fullName, 100);
+ 
+        cout << "Enter home phone: ";
+
+        cin.getline(homePhone, 15);
+ 
+        cout << "Enter work phone: ";
+
+        cin.getline(workPhone, 15);
+ 
+        cout << "Enter mobile phone: ";
+
+        cin.getline(mobilePhone, 15);
+ 
+        cout << "Enter additional info: ";
+
+        cin.getline(additionalInfo, 200);
+
+    }
+ 
+    void print() const {
+
+        printString(fullName, "Full Name: ");
+
+        printString(homePhone, "Home Phone: ");
+
+        printString(workPhone, "Work Phone: ");
+
+        printString(mobilePhone, "Mobile Phone: ");
+
+        printString(additionalInfo, "Additional Info: ");
+
+        cout << "----------------" << endl;
+
+    }
+ 
+    const char* getFullName() const { return fullName; }
+
+    const char* getMobilePhone() const { return mobilePhone; }
+
+};
+ 
+int Abonent::totalAbonents = 0;
+
+class PhoneBook {
+
+private:
+
+    Abonent* abonents;
+
+    int countAbonent;
+
+    int capacity;
+ 
+    bool compareStrings(const char* str1, const char* str2) const {
+
+        int i = 0;
+
+        while (str1[i] != '\n' && str2[i] != '\n') {
+
+            if (str1[i] != str2[i]) return false;
+
+            i++;
+
+        }
+
+        return str1[i] == str2[i];
+
+    }
+ 
+public:
+
+    PhoneBook() : countAbonent(0), capacity(10) {
+
+        abonents = new Abonent[capacity];
+
+    }
+ 
+    ~PhoneBook() {
+
+        delete[] abonents;
+
+    }
+ 
+    void add(Abonent a) {
+
+        if (countAbonent >= capacity) {
+
+            capacity *= 2;
+
+            Abonent* temp = new Abonent[capacity];
+
+            for (int i = 0; i < countAbonent; i++) {
+
+                temp[i] = abonents[i];
+
+            }
+
+            delete[] abonents;
+
+            abonents = temp;
+
+        }
+
+        abonents[countAbonent] = a;
+
+        countAbonent++;
+
+    }
+ 
+    void deleteByPhone(const char* phone) {
+
+        int index = -1;
+
+        for (int i = 0; i < countAbonent; i++) {
+
+            if (compareStrings(abonents[i].getMobilePhone(), phone)) {
+
+                index = i;
+
+                break;
+
+            }
+
+        }
+ 
+        if (index == -1) {
+
+            cout << "Abonent with this phone not found!" << endl;
+
+            return;
+
+        }
+ 
+        for (int i = index; i < countAbonent - 1; i++) {
+
+            abonents[i] = abonents[i + 1];
+
+        }
+
+        countAbonent--;
+
+        cout << "Abonent deleted." << endl;
+
+    }
+ 
+    void searchByName(const char* name) const {
+
+        bool found = false;
+
+        for (int i = 0; i < countAbonent; i++) {
+
+            if (compareStrings(abonents[i].getFullName(), name)) {
+
+                abonents[i].print();
+
+                found = true;
+
+            }
+
+        }
+
+        if (!found) cout << "No abonents found with this name." << endl;
+
+    }
+ 
+    void searchByPhone(const char* phone) const {
+
+        bool found = false;
+
+        for (int i = 0; i < countAbonent; i++) {
+
+            if (compareStrings(abonents[i].getMobilePhone(), phone)) {
+
+                abonents[i].print();
+
+                found = true;
+
+            }
+
+        }
+
+        if (!found) cout << "No abonents found with this phone." << endl;
+
+    }
+ 
+    void showAll() const {
+
+        if (countAbonent == 0) {
+
+            cout << "Phone book is empty." << endl;
+
+            return;
+
+        }
+
+        for (int i = 0; i < countAbonent; i++) {
+
+            cout << "Abonent " << i + 1 << ":\n";
+
+            abonents[i].print();
+
+        }
+
+    }
+
+};
+
+int main() {
+
+    PhoneBook book;
+
+    int choice;
+
+    char buffer[100];
+ 
+    do {
+
+        cout << "\nPhone Book Menu:\n";
+
+        cout << "1. Add new abonent\n";
+
+        cout << "2. Delete abonent by phone\n";
+
+        cout << "3. Search by name\n";
+
+        cout << "4. Search by phone\n";
+
+        cout << "5. Show all abonents\n";
+
+        cout << "6. Exit\n";
+
+        cout << "Choose an option: ";
+
+        cin >> choice;
+ 
+        if (choice == 1) {
+
+            Abonent a;
+
+            cout << "Enter abonent details:\n";
+
+            a.input();
+
+            book.add(a);
+
+            cout << "Abonent added. Total abonents: " << Abonent::totalAbonents << endl;
+
+        }
+
+        else if (choice == 2) {
+
+            cout << "Enter mobile phone to delete: ";
+
+            cin.ignore(1, '\n');
+
+            cin.getline(buffer, 100);
+
+            book.deleteByPhone(buffer);
+
+        }
+
+        else if (choice == 3) {
+
+            cout << "Enter name to search: ";
+
+            cin.ignore(1, '\n');
+
+            cin.getline(buffer, 100);
+
+            book.searchByName(buffer);
+
+        }
+
+        else if (choice == 4) {
+
+            cout << "Enter phone to search: ";
+
+            cin.ignore(1, '\n');
+
+            cin.getline(buffer, 100);
+
+            book.searchByPhone(buffer);
+
+        }
+
+        else if (choice == 5) {
+
+            book.showAll();
+
+        }
+
+        else if (choice == 6) {
+
+            cout << "Exiting...\n";
+
+        }
+
+        else {
+
+            cout << "Invalid option!\n";
+
+        }
+
+    } while (choice != 6);
+
+}
+ 
