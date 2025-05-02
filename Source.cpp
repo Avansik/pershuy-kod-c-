@@ -1753,8 +1753,96 @@ int main()
 
 
 
-
-
+// 04.09.2025
+#include <iostream>
+using namespace std;
+ 
+struct Coord {
+    int x;
+    int y;
+};
+ 
+class Rectangle {
+private:
+    int width;
+    int height;
+    char symbol;
+    Coord position;
+ 
+public:
+    Rectangle() : width(5), height(3), symbol('#'), position{ 0, 0 } {}
+ 
+    Rectangle(int size) : width(size), height(size), symbol('#'), position{ 0, 0 } {
+        if (size <= 0) {
+            width = 5;
+            height = 5;
+            cout << "Invalid size! Set to default (5x5)." << endl;
+        }
+    }
+ 
+    Rectangle(int w, int h) : width(w), height(h), symbol('#'), position{ 0, 0 } {
+        if (w <= 0 || h <= 0) {
+            width = 5;
+            height = 3;
+            cout << "Invalid dimensions! Set to default (5x3)." << endl;
+        }
+    }
+ 
+    void print() const {
+        for (int i = 0; i < position.y; i++) cout << endl;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < position.x; j++) cout << " ";
+            for (int j = 0; j < width; j++) cout << symbol << " ";
+            cout << endl;
+        }
+    }
+ 
+    void resize(int deltaHeight, int deltaWidth) {
+        int newHeight = height + deltaHeight;
+        int newWidth = width + deltaWidth;
+        if (newHeight <= 0 || newWidth <= 0) {
+            cout << "Invalid resize! Dimensions must be positive." << endl;
+            return;
+        }
+        height = newHeight;
+        width = newWidth;
+    }
+ 
+    void move(int deltaX, int deltaY) {
+        int newX = position.x + deltaX;
+        int newY = position.y + deltaY;
+        if (newX < 0 || newY < 0) {
+            cout << "Invalid move! Coordinates must be non-negative." << endl;
+            return;
+        }
+        position.x = newX;
+        position.y = newY;
+    }
+};
+ 
+int main() {
+    Rectangle r1;
+    cout << "Default rectangle (5x3 at (0,0)):\n";
+    r1.print();
+ 
+    Rectangle r2(4);
+    cout << "\nSquare rectangle (4x4 at (0,0)):\n";
+    r2.print();
+ 
+    Rectangle r3(6, 2);
+    cout << "\nCustom rectangle (6x2 at (0,0)):\n";
+    r3.print();
+ 
+    cout << "\nResizing r3 (add 1 to height, 2 to width):\n";
+    r3.resize(1, 2);
+    r3.print();
+ 
+    cout << "\nMoving r3 (shift by 2 on X, 1 on Y):\n";
+    r3.move(2, 1);
+    r3.print();
+ 
+    return 0;
+}
 
 
 
