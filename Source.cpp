@@ -2042,3 +2042,119 @@ int main()
 
     cout << "Total abonents: " << Abonent::GetAbonentCount() << endl;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//04/09/2025
+#include <iostream>
+using namespace std;
+ 
+class Student {
+private:
+    char name[50];
+    int nameLen;
+    int age;
+    int* marks;
+    int markCount;
+    float averageMark;
+ 
+    void setAverageMark() {
+        if (markCount == 0) {
+            averageMark = 0;
+            return;
+        }
+        float sum = 0;
+        for (int i = 0; i < markCount; i++) {
+            sum += marks[i];
+        }
+        averageMark = sum / markCount;
+    }
+ 
+public:
+    Student() : age(0), marks(nullptr), markCount(0), averageMark(0), nameLen(0) {}
+ 
+    Student(const char* n, int a) : age(a), marks(nullptr), markCount(0), averageMark(0) {
+        nameLen = 0;
+        while (n[nameLen] != '\n' && nameLen < 50) {
+            name[nameLen] = n[nameLen];
+            nameLen++;
+        }
+    }
+ 
+    ~Student() {
+        if (marks != nullptr) {
+            delete[] marks;
+        }
+    }
+ 
+    void print() const {
+        cout << "Name: ";
+        for (int i = 0; i < nameLen; i++) cout << name[i];
+        cout << endl;
+        cout << "Age: " << age << endl;
+        cout << "Marks: ";
+        for (int i = 0; i < markCount; i++) cout << marks[i] << " ";
+        cout << endl;
+        cout << "Average Mark: " << averageMark << endl;
+        cout << "----------------" << endl;
+    }
+ 
+    void addMark(int mark) {
+        int* temp = new int[markCount + 1];
+        for (int i = 0; i < markCount; i++) {
+            temp[i] = marks[i];
+        }
+        temp[markCount] = mark;
+        if (marks != nullptr) {
+            delete[] marks;
+        }
+        marks = temp;
+        markCount++;
+        setAverageMark();
+    }
+ 
+    const char* getName() const { return name; }
+    int getNameLen() const { return nameLen; }
+    int getAge() const { return age; }
+    const int* getMarks() const { return marks; }
+    int getMarkCount() const { return markCount; }
+    float getAverageMark() const { return averageMark; }
+ 
+    void setName(const char* value) {
+        nameLen = 0;
+        while (value[nameLen] != '\n' && nameLen < 50) {
+            name[nameLen] = value[nameLen];
+            nameLen++;
+        }
+    }
+ 
+    void setAge(int value) { age = value; }
+};
+ 
+int main() {
+    Student s1("John Doe", 20);
+    s1.addMark(85);
+    s1.addMark(90);
+    cout << "Student s1:\n";
+    s1.print();
+ 
+    Student s2("Jane Smith", 19);
+    s2.addMark(95);
+    cout << "Student s2:\n";
+    s2.print();
+ 
+    return 0;
+}
