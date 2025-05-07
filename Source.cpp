@@ -2867,7 +2867,7 @@ int main() {
 
  //05/07/2025
 #include <iostream>
-#include <string>
+
 using namespace std;
 
 template<typename T>
@@ -2878,6 +2878,10 @@ public:
     {
         T value;
         int priority;
+        void Print()
+        {
+            cout << "Value : " << value << ". Priority : " << priority << endl;
+        }
     };
 
 private:
@@ -2982,9 +2986,11 @@ void PrintMenu()
         }
         if (choice == 2) 
         {
-            cout << "------------------ Queue -----------------" << endl;
-            q.Print();
-            cout << "-----------------------------------------" << endl;
+            while (!q.IsEmpty())
+            {
+                q.Dequeue().Print();
+            }
+
         }
         if (choice == 3) 
         {
@@ -2996,5 +3002,6 @@ void PrintMenu()
 
 int main() 
 {
-    PrintMenu();   
+    PrintMenu();
+   
 }
