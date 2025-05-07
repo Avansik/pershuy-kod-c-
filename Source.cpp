@@ -2812,3 +2812,189 @@ int main() {
 //	system("pause");
 //	return 0;
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //05/07/2025
+#include <iostream>
+#include <string>
+using namespace std;
+
+template<typename T>
+class Queue 
+{
+public:
+    struct Element 
+    {
+        T value;
+        int priority;
+    };
+
+private:
+    Element* arr;
+    int size;
+
+public:
+    Queue() : arr(nullptr), size(0) {}
+    ~Queue() 
+    {
+        if (arr != nullptr) delete[] arr;
+    }
+
+    void Enqueue(T value, int pr) 
+    {
+        int index = 0;
+        while (index < size && arr[index].priority < pr) 
+        {
+            index++;
+        }
+        size++;
+        Element* temp = new Element[size];
+        for (int i = 0; i < index; i++) 
+        {
+            temp[i] = arr[i];
+        }
+        temp[index] = Element{ value, pr };
+        for (int i = index; i < size - 1; i++)
+        {
+            temp[i + 1] = arr[i];
+        }
+        if (arr != nullptr) 
+        {
+            delete[] arr;
+        }
+        arr = temp;
+    }
+
+    bool IsEmpty() const
+    {
+        return size == 0;
+    }
+
+    Element Dequeue() 
+    {
+        if (!IsEmpty()) 
+        {
+            Element first = arr[0];
+            for (int i = 0; i < size - 1; i++) 
+            {
+                arr[i] = arr[i + 1];
+            }
+            size--;
+            return first;
+        }
+         
+    }
+
+    void Print() const
+    {
+        cout << "--------------- Queue with priority ----------------" << endl;
+        for (int i = 0; i < size; i++) {
+            cout << arr[i].value << " : " << arr[i].priority << " | ";
+        }
+        cout << endl;
+        cout << "____________________________________________________" << endl;
+    }
+};
+
+void PrintMenu() 
+{
+    int choice;
+    Queue<string> q;
+
+    for (;;) 
+    {
+        cout << "Print menu : " << endl;
+        cout << "1. Add new document" << endl;
+        cout << "2. Print" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) 
+        {
+            string value;
+            int role;
+            cout << "Enter document name: ";
+            cin >> value;
+
+            cout << "Select your role:" << endl;
+            cout << "1. Guest" << endl;
+            cout << "2. Administrator" << endl;
+            cout << "3. Manager" << endl;
+            cout << "4. Director" << endl;
+            cout << "Enter your role (1-4): ";
+            cin >> role;
+
+    
+            q.Enqueue(value, role);
+            q.Print();
+        }
+        if (choice == 2) 
+        {
+            cout << "------------------ Queue -----------------" << endl;
+            q.Print();
+            cout << "-----------------------------------------" << endl;
+        }
+        if (choice == 3) 
+        {
+            cout << "Exiting the program." << endl;
+            break;
+        }
+    }
+}
+
+int main() 
+{
+    PrintMenu();   
+}
