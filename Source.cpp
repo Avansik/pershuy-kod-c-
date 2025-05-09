@@ -3289,3 +3289,162 @@ int main()
  
 //     return 0;
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//04/18/2025
+
+// #include <iostream>
+
+// using namespace std;
+
+// class Time
+
+// {
+
+//     int hours;
+
+//     int minutes;
+
+//     int seconds;
+
+//     int total;
+
+// public:
+
+//     Time()
+
+//     {
+
+//         hours = 0;
+
+//         minutes = 0;
+
+//         seconds = 0;
+
+//         total = 0;
+
+//     }
+
+//     Time(int Hours, int Minutes, int Seconds)
+
+//     {
+
+//         this->hours = Hours;
+
+//         this->minutes = Minutes;
+
+//         this->seconds = Seconds;
+
+//         total = 0;
+
+//     }
+
+//     Time(int seconds)
+
+//     {
+
+//         this->hours = seconds / 3600;
+
+//         this->minutes = seconds / 60 % 60;
+
+//         this->seconds = seconds % 60;
+
+//         total = 0;
+
+//     }
+
+//     void Print()
+
+//     {
+
+//         cout << "Hours = " << hours << endl;
+
+//         cout << "minutes = " << minutes << endl;
+
+//         cout << "seconds = " << seconds << endl;
+
+//     }
+
+//     Time operator +(Time& other)const
+
+//     {
+
+        
+
+//         Time res((*this).TotalSeconds()+other.TotalSeconds());
+
+//         return res;
+
+//     }
+
+//     int TotalSeconds()const
+
+//     {
+
+
+//         return this->hours * 3600 + this->minutes * 60 + this->seconds;
+
+//     }
+
+//     void ToHMS()
+
+//     {
+
+//         this->hours = total / 3600;
+
+//         this->minutes = total / 60 % 60;
+
+//         this->seconds = total % 60;
+
+//     }
+
+//     };
+
+// int main()
+
+// {
+
+
+//     Time time(5555);
+
+//     Time time2(5555);
+
+//     time.Print();
+
+//     Time res = time.operator+(time2);
+
+//     res.Print();
+ 
+    
+
+// }
+
+ 
