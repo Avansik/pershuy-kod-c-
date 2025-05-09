@@ -3005,3 +3005,287 @@ int main()
     PrintMenu();
    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//04/16/2025
+// #include <iostream>
+// using namespace std;
+ 
+// class Array {
+// private:
+//     long* arr;
+//     int size;
+ 
+//     void resize(int newSize) {
+//         long* temp = new long[newSize];
+//         for (int i = 0; i < size && i < newSize; i++) {
+//             temp[i] = arr[i];
+//         }
+//         for (int i = size; i < newSize; i++) {
+//             temp[i] = 0;
+//         }
+//         delete[] arr;
+//         arr = temp;
+//         size = newSize;
+//     }
+ 
+// public:
+//     Array() : size(10) {
+//         arr = new long[size];
+//         for (int i = 0; i < size; i++) {
+//             arr[i] = 0;
+//         }
+//     }
+ 
+//     explicit Array(int s) : size(s) {
+//         if (s <= 0) {
+//             cout << "Invalid size! Setting to default (10)." << endl;
+//             size = 10;
+//         }
+//         arr = new long[size];
+//         for (int i = 0; i < size; i++) {
+//             arr[i] = 0;
+//         }
+//     }
+ 
+//     Array(const Array& other) : size(other.size) {
+//         arr = new long[size];
+//         for (int i = 0; i < size; i++) {
+//             arr[i] = other.arr[i];
+//         }
+//     }
+ 
+//     ~Array() {
+//         delete[] arr;
+//     }
+ 
+//     void fillRandom() {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return;
+//         }
+//         for (int i = 0; i < size; i++) {
+//             arr[i] = rand() % 100;
+//         }
+//     }
+ 
+//     void fillFromKeyboard() {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return;
+//         }
+//         cout << "Enter " << size << " elements:\n";
+//         for (int i = 0; i < size; i++) {
+//             cin >> arr[i];
+//         }
+//     }
+ 
+//     void fillDefault() {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return;
+//         }
+//         for (int i = 0; i < size; i++) {
+//             arr[i] = 0;
+//         }
+//     }
+ 
+//     void print() const {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return;
+//         }
+//         cout << "Array: ";
+//         for (int i = 0; i < size; i++) {
+//             cout << arr[i] << " ";
+//         }
+//         cout << endl;
+//     }
+ 
+//     void addElement(long value) {
+//         resize(size + 1);
+//         arr[size - 1] = value;
+//     }
+ 
+//     void deleteByValue(long value) {
+//         int index = -1;
+//         for (int i = 0; i < size; i++) {
+//             if (arr[i] == value) {
+//                 index = i;
+//                 break;
+//             }
+//         }
+//         if (index == -1) {
+//             cout << "Value not found!" << endl;
+//             return;
+//         }
+//         for (int i = index; i < size - 1; i++) {
+//             arr[i] = arr[i + 1];
+//         }
+//         resize(size - 1);
+//     }
+ 
+//     void deleteByIndex(int index) {
+//         if (index < 0 || index >= size) {
+//             cout << "Invalid index!" << endl;
+//             return;
+//         }
+//         for (int i = index; i < size - 1; i++) {
+//             arr[i] = arr[i + 1];
+//         }
+//         resize(size - 1);
+//     }
+ 
+//     void sortAscending() {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return;
+//         }
+//         for (int i = 0; i < size - 1; i++) {
+//             for (int j = 0; j < size - i - 1; j++) {
+//                 if (arr[j] > arr[j + 1]) {
+//                     long temp = arr[j];
+//                     arr[j] = arr[j + 1];
+//                     arr[j + 1] = temp;
+//                 }
+//             }
+//         }
+//     }
+ 
+//     void sortDescending() {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return;
+//         }
+//         for (int i = 0; i < size - 1; i++) {
+//             for (int j = 0; j < size - i - 1; j++) {
+//                 if (arr[j] < arr[j + 1]) {
+//                     long temp = arr[j];
+//                     arr[j] = arr[j + 1];
+//                     arr[j + 1] = temp;
+//                 }
+//             }
+//         }
+//     }
+ 
+//     long getMin() const {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return 0;
+//         }
+//         long min = arr[0];
+//         for (int i = 1; i < size; i++) {
+//             if (arr[i] < min) min = arr[i];
+//         }
+//         return min;
+//     }
+ 
+//     long getMax() const {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return 0;
+//         }
+//         long max = arr[0];
+//         for (int i = 1; i < size; i++) {
+//             if (arr[i] > max) max = arr[i];
+//         }
+//         return max;
+//     }
+ 
+//     double getAverage() const {
+//         if (size == 0) {
+//             cout << "Array is empty!" << endl;
+//             return 0.0;
+//         }
+//         double sum = 0;
+//         for (int i = 0; i < size; i++) {
+//             sum += arr[i];
+//         }
+//         return sum / size;
+//     }
+ 
+//     Array& operator=(const Array& other) {
+//         if (this == &other) {
+//             return *this; 
+//         }
+//         delete[] arr;
+//         size = other.size;
+//         arr = new long[size];
+//         for (int i = 0; i < size; i++) {
+//             arr[i] = other.arr[i];
+//         }
+//         return *this;
+//     }
+// };
+ 
+// int main() {
+//     Array a1(5);
+//     cout << "Array a1 (default):\n";
+//     a1.print();
+ 
+//     cout << "\nFilling a1 with random values:\n";
+//     a1.fillRandom();
+//     a1.print();
+ 
+//     cout << "\nFilling a1 from keyboard:\n";
+//     a1.fillFromKeyboard();
+//     a1.print();
+ 
+//     cout << "\nAdding element 42:\n";
+//     a1.addElement(42);
+//     a1.print();
+ 
+//     cout << "\nDeleting element with value 42:\n";
+//     a1.deleteByValue(42);
+//     a1.print();
+ 
+//     cout << "\nDeleting element at index 2:\n";
+//     a1.deleteByIndex(2);
+//     a1.print();
+ 
+//     cout << "\nSorting ascending:\n";
+//     a1.sortAscending();
+//     a1.print();
+ 
+//     cout << "\nSorting descending:\n";
+//     a1.sortDescending();
+//     a1.print();
+ 
+//     cout << "\nMin: " << a1.getMin() << endl;
+//     cout << "Max: " << a1.getMax() << endl;
+//     cout << "Average: " << a1.getAverage() << endl;
+ 
+//     cout << "\nCopying a1 to a2:\n";
+//     Array a2(a1);
+//     a2.print();
+ 
+//     cout << "\nAssigning a1 to a3:\n";
+//     Array a3;
+//     a3 = a1;
+//     a3.print();
+ 
+//     return 0;
+// }
