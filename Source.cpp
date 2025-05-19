@@ -3791,3 +3791,68 @@ int main()
 
 
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//05/19/2025
+
+
+// #include <iostream>
+// using namespace std;
+
+// const int MAX_FOXES = 5;
+// const int MAX_RABBITS = 10;
+
+// class Animal {
+// protected:
+//     string name;
+//     string place;
+//     string species;
+//     int age;
+//     int maxAge;
+//     bool alive;
+
+// public:
+//     Animal(string n, string p, string s, int a, int mA)
+//         : name(n), place(p), species(s), age(a), maxAge(mA), alive(true) {
+//     }
+
+//     virtual void MakeSound() = 0;
+//     virtual void Move() = 0;
+
+//     void ShowInfo() {
+//         if (alive)
+//             cout << species << " " << name << " from " << place << ", Age: " << age << "/" << maxAge << endl;
+//     }
+
+//     void AgeUp() {
+//         if (alive) {
+//             age++;
+//             if (age > maxAge) {
+//                 alive = false;
+//                 cout << species << " " << name << " died of old age." << endl;
+//             }
+//         }
+//     }
+
+//     bool IsAlive() { return alive; }
+
+//     string GetSpecies() { return species; }
+//     string GetName() { return name; }
+
+//     void Die() { alive = false; }
+// };
