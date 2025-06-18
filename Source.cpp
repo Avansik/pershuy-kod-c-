@@ -4198,7 +4198,273 @@ int main() {
 
 
 
+//06/15/2025 
+// #include <iostream>    
+// #include <vector>       
+// #include <fstream>      
+// #include <sstream>     
+// using namespace std;
 
+// template <typename T>
+// string toString(T value) {
+//     stringstream ss;
+//     ss << value;
+//     return ss.str();
+// }
+
+// //товар
+// class Item {
+// protected:
+//     string name;
+//     string category;
+//     double price;
+//     int quantity;
+
+// public:
+//     Item(string name, string category, double price, int quantity)
+//         : name(name), category(category), price(price), quantity(quantity) {
+//     }
+
+//     virtual ~Item() {}
+
+//     virtual void display() const {
+//         cout << "Name: " << name << "\nCategory: " << category
+//             << "\nPrice: " << price << "\nQuantity: " << quantity << endl;
+//     }
+
+//     virtual string toFileString() const {
+//         return name + ";" + category + ";" + toString(price) + ";" + toString(quantity) + "\n";
+//     }
+
+//     string getName() const { return name; }
+//     string getCategory() const { return category; }
+//     double getPrice() const { return price; }
+//     int getQuantity() const { return quantity; }
+
+//     void setPrice(double p) { price = p; }
+//     void setQuantity(int q) { quantity = q; }
+// };
+
+// // товар з терміном придат
+// class Product : public Item {
+//     string expirationDate;
+
+// public:
+//     Product(string name, string category, double price, int quantity, string expirationDate)
+//         : Item(name, category, price, quantity), expirationDate(expirationDate) {
+//     }
+
+//     void display() const override {
+//         Item::display();
+//         cout << "Expiration Date: " << expirationDate << endl;
+//     }
+
+//     string toFileString() const override {
+//         return name + ";" + category + ";" + toString(price) + ";" + toString(quantity) + ";" + expirationDate + "\n";
+//     }
+
+//     string getExpirationDate() const { return expirationDate; }
+// };
+
+// // магазин з товарами
+// class Shop {
+//     vector<Item*> inventory;
+//     string filename = "shopdata.txt";
+
+// public:
+//     ~Shop() {
+//         for (auto item : inventory) delete item;
+//     }
+
+//     void addItem() {
+//         string name, category, expirationDate;
+//         double price;
+//         int quantity;
+
+//         cout << "Enter product name: ";
+//         getline(cin, name);
+//         cout << "Enter category: ";
+//         getline(cin, category);
+//         cout << "Enter price: ";
+//         cin >> price;
+//         cout << "Enter quantity: ";
+//         cin >> quantity;
+//         cin.ignore();
+
+//         if (category == "Dairy" || category == "Bakery") {
+//             cout << "Enter expiration date: ";
+//             getline(cin, expirationDate);
+//             inventory.push_back(new Product(name, category, price, quantity, expirationDate));
+//         }
+//         else {
+//             inventory.push_back(new Item(name, category, price, quantity));
+//         }
+
+//         saveToFile();
+//         cout << "Product added.\n";
+//     }
+
+//     void removeItem() {
+//         string name;
+//         cout << "Enter product name to remove: ";
+//         getline(cin, name);
+//         for (size_t i = 0; i < inventory.size(); ++i) {
+//             if (inventory[i]->getName() == name) {
+//                 delete inventory[i];
+//                 inventory.erase(inventory.begin() + i);
+//                 saveToFile();
+//                 cout << "Product removed.\n";
+//                 return;
+//             }
+//         }
+//         cout << "Product not found.\n";
+//     }
+
+//     void showAll() const {
+//         if (inventory.empty()) {
+//             cout << "Inventory is empty.\n";
+//             return;
+//         }
+//         for (auto item : inventory) {
+//             item->display();
+//             cout << "------------------\n";
+//         }
+//     }
+
+//     void filterByPrice() {
+//         double low, high;
+//         cout << "Enter min price: "; cin >> low;
+//         cout << "Enter max price: "; cin >> high;
+//         cin.ignore();
+
+//         bool found = false;
+//         for (auto item : inventory) {
+//             if (item->getPrice() >= low && item->getPrice() <= high) {
+//                 item->display();
+//                 cout << "------------------\n";
+//                 found = true;
+//             }
+//         }
+//         if (!found) cout << "No items found in this price range.\n";
+//     }
+
+//     void filterByQuantity() {
+//         int low, high;
+//         cout << "Enter min quantity: "; cin >> low;
+//         cout << "Enter max quantity: "; cin >> high;
+//         cin.ignore();
+
+//         bool found = false;
+//         for (auto item : inventory) {
+//             if (item->getQuantity() >= low && item->getQuantity() <= high) {
+//                 item->display();
+//                 cout << "------------------\n";
+//                 found = true;
+//             }
+//         }
+//         if (!found) cout << "No items found in this quantity range.\n";
+//     }
+
+//     void loadFromFile() {
+//         ifstream file(filename);
+//         if (!file) {
+//             cout << "No file found. Starting with empty inventory.\n";
+//             return;
+//         }
+
+//         string line;
+//         while (getline(file, line)) {
+//             stringstream ss(line);
+//             string name, category, priceStr, quantityStr, expirationDate;
+
+//             getline(ss, name, ';');
+//             getline(ss, category, ';');
+//             getline(ss, priceStr, ';');
+//             getline(ss, quantityStr, ';');
+
+//             double price = stod(priceStr);
+//             int quantity = stoi(quantityStr);
+
+//             if (getline(ss, expirationDate, ';')) {
+//                 inventory.push_back(new Product(name, category, price, quantity, expirationDate));
+//             }
+//             else {
+//                 inventory.push_back(new Item(name, category, price, quantity));
+//             }
+//         }
+//         file.close();
+//         cout << "Data loaded from file.\n";
+//     }
+
+//     void saveToFile() const {
+//         ofstream file(filename);
+//         for (auto item : inventory) {
+//             file << item->toFileString();
+//         }
+//     }
+
+//     void showTable() const {
+//         if (inventory.empty()) {
+//             cout << "Inventory is empty.\n";
+//             return;
+//         }
+
+//         cout << "Name\t\t| Category\t| Price\t| Qty\t| Expiration\n";
+//         cout << "--------------------------------------------------------------\n";
+
+//         for (auto item : inventory) {
+//             cout << item->getName() << "\t| "
+//                 << item->getCategory() << "\t| "
+//                 << item->getPrice() << "\t| "
+//                 << item->getQuantity() << "\t| ";
+
+//             Product* product = dynamic_cast<Product*>(item);
+//             if (product != nullptr) {
+//                 cout << product->getExpirationDate();
+//             }
+//             else {
+//                 cout << "-";
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     void menu() {
+//         loadFromFile();
+
+//         while (true) {
+//             cout << "\n========= SHOP MENU =========\n";
+//             cout << "1. Add item\n";
+//             cout << "2. Remove item\n";
+//             cout << "3. Show all items\n";
+//             cout << "6. Filter by price\n";
+//             cout << "7. Filter by quantity\n";
+//             cout << "8. Show table\n";
+//             cout << "0. Exit\n";
+//             cout << "Choose: ";
+
+//             int choice;
+//             cin >> choice;
+//             cin.ignore();
+
+//             switch (choice) {
+//             case 1: addItem(); break;
+//             case 2: removeItem(); break;
+//             case 3: showAll(); break;
+//             case 6: filterByPrice(); break;
+//             case 7: filterByQuantity(); break;
+//             case 8: showTable(); break;
+//             case 0: cout << "Exiting...\n"; return;
+//             default: cout << "Invalid choice.\n";
+//             }
+//         }
+//     }
+// };
+
+// int main() {
+//     Shop shop;
+//     shop.menu();
+// }
 
 
 
